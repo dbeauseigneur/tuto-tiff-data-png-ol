@@ -1,0 +1,16 @@
+{
+  "name": "cog",
+  "dependencies": {
+    "geotiff": "^2.0.5",
+    "ol": "7.1.0",
+    "proj4": "^2.8.0"
+  },
+  "devDependencies": {
+    "@babel/core": "latest",
+    "vite": "^3.0.3"
+  },
+  "scripts": {
+    "start": "vite",
+    "build": "vite build"
+  }
+}

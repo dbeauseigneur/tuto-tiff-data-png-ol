@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<title>Cloud Optimized GeoTIFF (COG)</title>
+	<link rel="stylesheet" href="cog_fichiers/ol.css">
+	<style>
+		.map {
+			width: 80%;
+			height: 60vh;
+		}
+	</style>
+</head>
+<body>
+<h4></h4>
+<div id="map" class="map"></div>
+<div id="mouse-position"></div>
+<div id="altitude-label"></div>
+
+<h4></h4>
+<div id="map2" class="map"></div>
+<div id="mouse-position2"></div>
+<div id="altitude-label2"></div>
+
+<!-- Pointer events polyfill for old browsers, see https://caniuse.com/#feat=pointer -->
+<script src="https://unpkg.com/elm-pep@1.0.6/dist/elm-pep.js"></script>
+<script type="module" src="cog_fichiers/main.js"></script>
+</body>
+</html>

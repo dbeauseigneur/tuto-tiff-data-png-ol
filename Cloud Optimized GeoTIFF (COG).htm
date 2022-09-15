@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <title>Cloud Optimized GeoTIFF (COG)</title>
+    <link rel="stylesheet" type="text/css" href="Cloud%20Optimized%20GeoTIFF%20(COG)_fichiers/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="Cloud%20Optimized%20GeoTIFF%20(COG)_fichiers/fontawesome.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="Cloud%20Optimized%20GeoTIFF%20(COG)_fichiers/solid.css" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="Cloud%20Optimized%20GeoTIFF%20(COG)_fichiers/brands.css" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="Cloud%20Optimized%20GeoTIFF%20(COG)_fichiers/ol.css">
+    <link rel="stylesheet" type="text/css" href="Cloud%20Optimized%20GeoTIFF%20(COG)_fichiers/site.css">
+    <link rel="icon" type="image/svg+xml" href="https://openlayers.org/theme/img/logo-light.svg" media="(prefers-color-scheme: light)">
+    <link rel="icon" type="image/svg+xml" href="Cloud%20Optimized%20GeoTIFF%20(COG)_fichiers/logo-dark.svg" media="(prefers-color-scheme: dark)">
+  </head>
+  <body>
+    <header class="navbar navbar-expand-md navbar-dark mb-3 px-3 py-0 fixed-top" role="navigation">
+      <a class="navbar-brand" href="https://openlayers.org/"><img src="Cloud%20Optimized%20GeoTIFF%20(COG)_fichiers/logo-dark.svg" alt="" width="70" height="70">&nbsp;OpenLayers</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#olmenu" aria-controls="olmenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- menu items that get hidden below 768px width -->
+      <nav class="collapse navbar-collapse" id="olmenu">
+        <ul class="nav navbar-nav ms-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="docdropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Docs</a>
+            <div class="dropdown-menu dropdown-menu-end mb-3" aria-labelledby="docdropdown">
+              <a class="dropdown-item" href="https://openlayers.org/doc/">Docs</a>
+              <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="https://openlayers.org/doc/quickstart.html"><i class="fa fa-check fa-fw me-2 fa-lg"></i>Quick Start</a>
+                <a class="dropdown-item" href="https://openlayers.org/doc/faq.html"><i class="fa fa-question fa-fw me-2 fa-lg"></i>FAQ</a>
+                <a class="dropdown-item" href="https://openlayers.org/doc/tutorials/"><i class="fa fa-book fa-fw me-2 fa-lg"></i>Tutorials</a>
+                <a class="dropdown-item" href="https://openlayers.org/workshop/"><i class="fa fa-graduation-cap fa-fw me-2 fa-lg"></i>Workshop</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="https://stackoverflow.com/questions/tagged/openlayers"><i class="fab fa-stack-overflow fa-fw me-2"></i>Ask a Question</a>
+            </div>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="https://openlayers.org/en/latest/examples/">Examples</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://openlayers.org/en/latest/apidoc/"><i class="fa fa-sitemap me-1"></i>API</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="codedropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Code</a>
+            <div class="dropdown-menu dropdown-menu-end mb-3" aria-labelledby="codedropdown">
+              <a class="dropdown-item" href="https://github.com/openlayers/openlayers"><i class="fab fa-github fa-fw me-2 fa-lg"></i>Repository</a>
+              <a class="dropdown-item" href="https://openlayers.org/download/"><i class="fa fa-download fa-fw me-2 fa-lg"></i>Download</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="container-fluid line-numbers">
+      <div id="latest-check" class="alert alert-warning alert-dismissible" role="alert" style="display:none">
+        <button id="latest-dismiss" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        This example uses OpenLayers v<span>7.1.0</span>. The <a id="latest-link" href="#" class="alert-link">latest</a> is v<span id="latest-version">7.1.0</span>.
+      </div>
+
+
+      <div class="row-fluid">
+        <a href="https://codesandbox.io/api/v1/sandboxes/define" id="codepen-button" class="btn btn-link float-end">
+          <i class="fab fa-codepen fa-lg"></i> Edit
+        </a>
+        <div class="span12">
+          <h4 id="title">Cloud Optimized GeoTIFF (COG)</h4>
+          <p class="tags">
+            <span class="badge-group">
+              <a href="https://openlayers.org/en/latest/examples/index.html?q=cog" class="badge badge-info">cog</a><a class="badge badge-info tag-modal-toggle" data-bs-toggle="modal" data-bs-target="#tag-example-list" data-title="cog" data-content="&lt;ul class=&quot;list-group&quot;&gt;
+                  &lt;li&gt;&lt;a class=&quot;list-group-item list-group-item-action&quot; href=&quot;./cog-stretch.html&quot;&gt;Band Contrast Stretch&lt;/a&gt;
+                  &lt;li&gt;&lt;a class=&quot;list-group-item list-group-item-action&quot; href=&quot;./cog-style.html&quot;&gt;Change Tile Layer Style&lt;/a&gt;
+                  &lt;li&gt;&lt;a class=&quot;list-group-item list-group-item-action active&quot; href=&quot;./cog.html&quot;&gt;Cloud Optimized GeoTIFF (COG)&lt;/a&gt;
+                  &lt;li&gt;&lt;a class=&quot;list-group-item list-group-item-action&quot; href=&quot;./cog-blob.html&quot;&gt;Cloud Optimized GeoTIFF (COG) from a Blob&lt;/a&gt;
+                  &lt;li&gt;&lt;a class=&quot;list-group-item list-group-item-action&quot; href=&quot;./cog-pyramid.html&quot;&gt;GeoTIFF tile pyramid&lt;/a&gt;
+                  &lt;li&gt;&lt;a class=&quot;list-group-item list-group-item-action&quot; href=&quot;./cog-overviews.html&quot;&gt;GeoTIFF with Overviews&lt;/a&gt;
+                  &lt;li&gt;&lt;a class=&quot;list-group-item list-group-item-action&quot; href=&quot;./cog-math.html&quot;&gt;NDVI from a Sentinel 2 COG&lt;/a&gt;
+                  &lt;li&gt;&lt;a class=&quot;list-group-item list-group-item-action&quot; href=&quot;./cog-colors.html&quot;&gt;NDVI with a Dynamic Color Ramp&lt;/a&gt;
+                  &lt;li&gt;&lt;a class=&quot;list-group-item list-group-item-action&quot; href=&quot;./cog-math-multisource.html&quot;&gt;NDVI+NDWI from two 16-bit COGs&lt;/a&gt;
+                  &lt;/ul&gt;" tabindex="0">9</a>
+            </span>
+          </p>
+          <div class="modal modal-tag-example" id="tag-example-list" tabindex="-1" role="dialog" aria-labelledby="tag-example-title" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="tag-example-title"></h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <div class="list-group"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="map" class="map"><div class="ol-viewport" style="position: relative; overflow: hidden; width: 100%; height: 100%;"><div style="position: absolute; width: 100%; height: 100%; z-index: 0;" class="ol-unselectable ol-layers"><canvas style="position: absolute; left: 0px; width: 1559px; height: 400px;" class="ol-layer" width="1559" height="400"></canvas></div><div style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;" class="ol-overlaycontainer"></div><div style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;" class="ol-overlaycontainer-stopevent"><div style="pointer-events: auto;" class="ol-zoom ol-unselectable ol-control"><button class="ol-zoom-in" type="button" title="Zoom in">+</button><button class="ol-zoom-out" type="button" title="Zoom out">–</button></div><div style="pointer-events: auto;" class="ol-rotate ol-unselectable ol-control ol-hidden"><button class="ol-rotate-reset" type="button" title="Reset rotation"><span class="ol-compass" style="transform: rotate(0rad);">⇧</span></button></div><div style="pointer-events: auto; display: none;" class="ol-attribution ol-unselectable ol-control ol-collapsed"><button type="button" aria-expanded="false" title="Attributions"><span class="ol-attribution-expand">i</span></button><ul></ul></div></div></div></div>
+
+        </div>
+        <form method="POST" id="codepen-form" target="_blank" action="https://codesandbox.io/api/v1/sandboxes/define">
+          <input id="codesandbox-params" type="hidden" name="parameters">
+        </form>
+      </div>
+
+      <div class="row-fluid">
+        <div class="span12">
+          <p id="shortdesc">Rendering a COG as a tiled layer.</p>
+          <div id="docs"><p>Tiled data from a Cloud Optimized GeoTIFF 
+(COG) can be rendered as a layer.  In this example, a single 3-band 
+GeoTIFF is used to render RGB data.</p>
+</div>
+        </div>
+      </div>
+
+      <div class="row-fluid">
+        <h5 class="source-heading">main.js</h5>
+        <div class="code-toolbar"><pre class="language-js" tabindex="0"><code id="example-js-source" class="language-js"><span class="token keyword">import</span> GeoTIFF <span class="token keyword">from</span> <span class="token string">'ol/source/GeoTIFF'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Map <span class="token keyword">from</span> <span class="token string">'ol/Map'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> TileLayer <span class="token keyword">from</span> <span class="token string">'ol/layer/WebGLTile'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> source <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">GeoTIFF</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token literal-property property">sources</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token literal-property property">url</span><span class="token operator">:</span> <span class="token string">'Cloud%20Optimized%20GeoTIFF%20(COG)_fichiers/test.tif'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token literal-property property">target</span><span class="token operator">:</span> <span class="token string">'map'</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">layers</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token keyword">new</span> <span class="token class-name">TileLayer</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token literal-property property">source</span><span class="token operator">:</span> source<span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">view</span><span class="token operator">:</span> source<span class="token punctuation">.</span><span class="token function">getView</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><div class="toolbar"><div class="toolbar-item"><button class="copy-to-clipboard-button" type="button" data-copy-state="copy"><span>Copy</span></button></div></div></div>
+      </div>
+
+      <div class="row-fluid">
+        <h5 class="source-heading">index.html</h5>
+        <div class="code-toolbar"><pre class="language-markup" tabindex="0"><code id="example-html-source" class="language-markup"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>Cloud Optimized GeoTIFF (COG)<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>node_modules/ol/ol.css<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span>
+      .map {
+        width: 100%;
+        height: 400px;
+      }
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>map<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>map<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token comment">&lt;!-- Pointer events polyfill for old browsers, see https://caniuse.com/#feat=pointer --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://unpkg.com/elm-pep@1.0.6/dist/elm-pep.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>module<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>main.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span></code></pre><div class="toolbar"><div class="toolbar-item"><button class="copy-to-clipboard-button" type="button" data-copy-state="copy"><span>Copy</span></button></div></div></div>
+      </div>
+
+      <div class="row-fluid">
+        <h5 class="source-heading">package.json</h5>
+        <div class="code-toolbar"><pre class="language-json" tabindex="0"><code id="example-pkg-source" class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"cog"</span><span class="token punctuation">,</span>
+  <span class="token property">"dependencies"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"ol"</span><span class="token operator">:</span> <span class="token string">"7.1.0"</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"devDependencies"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"vite"</span><span class="token operator">:</span> <span class="token string">"^3.0.3"</span><span class="token punctuation">,</span>
+    <span class="token property">"@babel/core"</span><span class="token operator">:</span> <span class="token string">"latest"</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"start"</span><span class="token operator">:</span> <span class="token string">"vite"</span><span class="token punctuation">,</span>
+    <span class="token property">"build"</span><span class="token operator">:</span> <span class="token string">"vite build"</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre><div class="toolbar"><div class="toolbar-item"><button class="copy-to-clipboard-button" type="button" data-copy-state="copy"><span>Copy</span></button></div></div></div>
+      </div>
+    </div>
+
+    <script src="Cloud%20Optimized%20GeoTIFF%20(COG)_fichiers/elm-pep.js"></script>
+    <script src="Cloud%20Optimized%20GeoTIFF%20(COG)_fichiers/bootstrap.bundle.min.js"></script>
+    <script src="Cloud%20Optimized%20GeoTIFF%20(COG)_fichiers/common_002.js"></script>
+    <script src="Cloud%20Optimized%20GeoTIFF%20(COG)_fichiers/cog.js"></script>
+    <script src="Cloud%20Optimized%20GeoTIFF%20(COG)_fichiers/prism-core.min.js"></script>
+    <script src="Cloud%20Optimized%20GeoTIFF%20(COG)_fichiers/prism-autoloader.min.js"></script>
+    <script src="Cloud%20Optimized%20GeoTIFF%20(COG)_fichiers/prism-toolbar.min.js"></script>
+    <script src="Cloud%20Optimized%20GeoTIFF%20(COG)_fichiers/prism-copy-to-clipboard.js"></script>
+    <script src="Cloud%20Optimized%20GeoTIFF%20(COG)_fichiers/common.js"></script>
+    <script>
+      document.getElementById('tag-example-list')
+        .addEventListener('show.bs.modal', function (event) {
+          const button = event.relatedTarget; // Button that triggered the modal
+          this.querySelector('.modal-title').innerText = button.dataset.title;
+          this.querySelector('.modal-body').innerHTML = button.dataset.content;
+        });
+    </script>
+    <script>
+      const releaseUrl = 'https://cdn.jsdelivr.net/npm/ol/package.json';
+      fetch(releaseUrl).then(function(response) {
+        return response.json();
+      }).then(function(json) {
+        const latestVersion = json.version;
+        document.getElementById('latest-version').innerHTML = latestVersion;
+        const url = window.location.href;
+        const branchSearch = url.match(/\/([^\/]*)\/examples\//);
+        const storageKey = 'ol-dismissed=-' + latestVersion;
+        const dismissed = localStorage.getItem(storageKey) === 'true';
+        if (branchSearch && !dismissed && /^v[0-9\.]*$/.test(branchSearch[1]) && '7.1.0' != latestVersion) {
+          const link = url.replace(branchSearch[0], '/latest/examples/');
+          fetch(link, {method: 'head'}).then(function(response) {
+            const a = document.getElementById('latest-link');
+            a.href = response.status == 200 ? link : '../../latest/examples/';
+          });
+          const latestCheck = document.getElementById('latest-check');
+          latestCheck.style.display = '';
+          document.getElementById('latest-dismiss').onclick = function() {
+            latestCheck.style.display = 'none';
+            localStorage.setItem(storageKey, 'true');
+          }
+        }
+      });
+    </script>
+  
+
+</body></html>
